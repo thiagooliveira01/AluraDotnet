@@ -19,6 +19,15 @@ namespace DesignPatterns2
 
             int resultado = conta.Avalia();
             Console.WriteLine(resultado);
+
+            IExpressao contaDivisao = new Divisao(new Numero(10), new Numero(2));
+            IExpressao contaMultiplicacao = new Multiplicacao(new Numero(10), new Numero(2));
+
+            int resultado2 = contaDivisao.Avalia();
+            Console.WriteLine(resultado2);
+
+            int resultado3 = contaMultiplicacao.Avalia();
+            Console.WriteLine(resultado3);
         }
     }
 }
