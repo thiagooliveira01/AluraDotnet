@@ -1,5 +1,6 @@
 ﻿using DesignPatterns2.Cap1;
 using DesignPatterns2.Cap2;
+using DesignPatterns2.Cap4;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,19 +12,13 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            var notas = new NotasMusicais();
-            var musica = new List<INota>
-            {
-                notas.Pega("do"),
-                notas.Pega("re"),
-                notas.Pega("mi"),
-                notas.Pega("fa"),
-                notas.Pega("fa"),
-                notas.Pega("fa")
-            };
+            IExpressao esquerda = new Subtracao(new Numero(10), new Numero(5));
+            IExpressao direita = new Soma(new Numero(2), new Numero(10));
 
-            var piano = new Piano();
-            piano.Toca(musica);
+            IExpressao conta = new Soma(esquerda, direita);
+
+            int resultado = conta.Avalia();
+            Console.WriteLine(resultado);
         }
     }
 }
