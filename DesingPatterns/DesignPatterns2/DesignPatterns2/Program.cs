@@ -1,6 +1,7 @@
 ﻿using DesignPatterns2.Cap1;
 using DesignPatterns2.Cap2;
 using DesignPatterns2.Cap4;
+using DesignPatterns2.Cap6;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,29 +13,10 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            /*IExpressao esquerda = new Subtracao(new Numero(10), new Numero(5));
-            IExpressao direita = new Soma(new Numero(2), new Numero(10));
-
-            IExpressao conta = new Soma(esquerda, direita);
-
-            int resultado = conta.Avalia();
-            Console.WriteLine(resultado);
-            */
-
-            IExpressao contas = new Soma(new Numero(2), new Numero(10));
-            contas.Aceita(new Impressora());
-            Console.WriteLine(" = "+contas.Avalia());
-
-            /*
-            IExpressao contaDivisao = new Divisao(new Numero(10), new Numero(2));
-            IExpressao contaMultiplicacao = new Multiplicacao(new Numero(10), new Numero(2));
-
-            int resultado2 = contaDivisao.Avalia();
-            Console.WriteLine(resultado2);
-
-            int resultado3 = contaMultiplicacao.Avalia();
-            Console.WriteLine(resultado3);
-            */
+            var mensagem = new MensagemAdministrativa("victor");
+            var enviador = new EnviaPorEmail();
+            mensagem.Enviador = enviador;
+            mensagem.Envia();
         }
     }
 }
