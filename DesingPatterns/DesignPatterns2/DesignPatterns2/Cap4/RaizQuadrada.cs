@@ -13,6 +13,11 @@ namespace DesignPatterns2.Cap4
             this.expressao = e;
         }
 
+        public void Aceita(IVisitor visitor)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Avalia()
         {
             return (int)Math.Sqrt(expressao.Avalia());

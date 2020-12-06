@@ -12,14 +12,20 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            IExpressao esquerda = new Subtracao(new Numero(10), new Numero(5));
+            /*IExpressao esquerda = new Subtracao(new Numero(10), new Numero(5));
             IExpressao direita = new Soma(new Numero(2), new Numero(10));
 
             IExpressao conta = new Soma(esquerda, direita);
 
             int resultado = conta.Avalia();
             Console.WriteLine(resultado);
+            */
 
+            IExpressao contas = new Soma(new Numero(2), new Numero(10));
+            contas.Aceita(new Impressora());
+            Console.WriteLine(" = "+contas.Avalia());
+
+            /*
             IExpressao contaDivisao = new Divisao(new Numero(10), new Numero(2));
             IExpressao contaMultiplicacao = new Multiplicacao(new Numero(10), new Numero(2));
 
@@ -28,6 +34,7 @@ namespace DesignPatterns2
 
             int resultado3 = contaMultiplicacao.Avalia();
             Console.WriteLine(resultado3);
+            */
         }
     }
 }

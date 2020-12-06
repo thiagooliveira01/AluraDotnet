@@ -15,6 +15,11 @@ namespace DesignPatterns2.Cap4
             this.direita = direita;
         }
 
+        public void Aceita(IVisitor visitor)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Avalia()
         {
             int resultadoDaEsquerda = esquerda.Avalia();

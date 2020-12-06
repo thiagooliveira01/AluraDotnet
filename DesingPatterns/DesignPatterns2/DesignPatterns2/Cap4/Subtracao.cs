@@ -6,20 +6,25 @@ namespace DesignPatterns2.Cap4
 {
     public class Subtracao : IExpressao
     {
-        private IExpressao esquerda;
-        private IExpressao direita;
+
+        public IExpressao Esquerda { get; private set; }
+        public IExpressao Direita { get; private set; }
 
         public Subtracao(IExpressao esquerda, IExpressao direita)
         {
-            this.esquerda = esquerda;
-            this.direita = direita;
+            Esquerda = esquerda;
+            Direita = direita;
+        }
 
+        public void Aceita(IVisitor visitor)
+        {
+            visitor.ImprimeSubtracao(this);
         }
 
         public int Avalia()
         {
-            int resultadoDaEsquerda = esquerda.Avalia();
-            int resultadoDaDireita = direita.Avalia();
+            int resultadoDaEsquerda = Esquerda.Avalia();
+            int resultadoDaDireita = Direita.Avalia();
             return resultadoDaEsquerda - resultadoDaDireita;
         }
     }
