@@ -1,5 +1,6 @@
 ﻿using DesignPatterns2.Cap1;
 using DesignPatterns2.Cap2;
+using DesignPatterns2.Cap3;
 using DesignPatterns2.Cap4;
 using DesignPatterns2.Cap6;
 using DesignPatterns2.Cap7;
@@ -18,7 +19,28 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
+            Historico historico = new Historico();
 
+            Contrato contrato = new Contrato(DateTime.Now, "Mauricio", TipoContrato.Novo);
+            historico.Adiciona(contrato.SalvaEstado());
+
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
+
+            Console.WriteLine(contrato.Tipo);
+
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
+
+            Console.WriteLine(contrato.Tipo);
+
+            contrato.Avanca();
+            historico.Adiciona(contrato.SalvaEstado());
+
+            Console.WriteLine(contrato.Tipo);
+
+
+            Console.WriteLine(historico.Pega(1).Contrato.Tipo);
         }
     }
 }
