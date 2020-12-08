@@ -3,10 +3,13 @@ using DesignPatterns2.Cap2;
 using DesignPatterns2.Cap4;
 using DesignPatterns2.Cap6;
 using DesignPatterns2.Cap7;
+using DesignPatterns2.Cap8;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace DesignPatterns2
 {
@@ -14,14 +17,15 @@ namespace DesignPatterns2
     {
         static void Main(string[] args)
         {
-            FilaDeTrabalho fila = new FilaDeTrabalho();
-            Pedido pedido1 = new Pedido("Mauricio", 100.00);
-            Pedido pedido2 = new Pedido("Marcelo", 200.00);
-            fila.Adiciona(new PagaPedido(pedido1));
-            fila.Adiciona(new PagaPedido(pedido2));
-            fila.Adiciona(new FinalizaPedido(pedido1));
+            Cliente cliente = new Cliente();
 
-            fila.Processa();
+            cliente.Nome = "victor";
+            cliente.Endereco = "Rua Vergueiro";
+            cliente.DataDeNascimento = DateTime.Now;
+
+            string xml = new GeradorDeXml().GeraXml(cliente);
+
+            Console.WriteLine(xml);
         }
     }
 }
