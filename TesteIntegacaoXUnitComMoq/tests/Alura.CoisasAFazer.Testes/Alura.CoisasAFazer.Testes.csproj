@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Alura.CoisasAFazer.Core\Alura.CoisasAFazer.Core.csproj" />
-    <ProjectReference Include="..\..\src\Alura.CoisasAFazer.Infrastructure\Alura.CoisasAFazer.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\Alura.CoisasAFazer.Services\Alura.CoisasAFazer.Services.csproj" />
   </ItemGroup>
 

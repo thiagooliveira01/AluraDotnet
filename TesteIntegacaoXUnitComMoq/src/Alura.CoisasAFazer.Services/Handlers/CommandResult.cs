@@ -6,9 +6,9 @@ namespace Alura.CoisasAFazer.Services.Handlers
 {
     public class CommandResult
     {
-        public CommandResult(bool isSuccess)
+        public CommandResult(bool success)
         {
-            IsSuccess = isSuccess;
+            IsSuccess = success;
         }
 
         public bool IsSuccess { get; }
