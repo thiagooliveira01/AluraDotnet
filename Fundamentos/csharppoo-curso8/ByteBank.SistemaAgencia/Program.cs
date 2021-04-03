@@ -1,8 +1,7 @@
 ﻿using ByteBank.SistemaAgencia.Comparadores;
 using System;
 using System.Collections.Generic;
-
-
+using System.Linq;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -14,21 +13,26 @@ namespace ByteBank.SistemaAgencia
             {
                 new ContaCorrente(341, 57480),
                 new ContaCorrente(342, 45678),
+                null,
                 new ContaCorrente(340, 1),
                 new ContaCorrente(339, 99999),
+                null,
                 new ContaCorrente(340, 48950),
                 new ContaCorrente(290, 18950)
             };
 
             // contas.Sort(); Chama a implementação dada em IComparable
 
-            contas.Sort(new ComparadorContaCorrentePorAgencia());
+            //contas.Sort(new ComparadorContaCorrentePorAgencia());
 
-            foreach (var conta in contas)
+            var contasOrdenadas = contas
+                                  .Where(conta => conta != null).OrderBy(conta => conta.Numero);
+
+            foreach (var conta in contasOrdenadas)
             {
-                Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");
+                Console.WriteLine($"Conta número {conta.Numero}, ag. {conta.Agencia}");             
             }
-
+            
 
             Console.ReadLine();
         }
