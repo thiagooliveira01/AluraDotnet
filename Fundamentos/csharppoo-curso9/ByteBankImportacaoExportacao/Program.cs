@@ -12,19 +12,9 @@ namespace ByteBankImportacaoExportacao
     { 
         static void Main(string[] args) 
         {
-            var numero = 691693903;
 
-            using (var fs = new FileStream("c:/temp/BinaryWriter.txt", FileMode.Create))
-            using (var writer = new BinaryWriter(fs))
-            {
-                writer.Write(numero);
-            }
-
-            using (var fs = new FileStream("c:/temp/StreamWriter.txt", FileMode.Create))
-            using (var writer = new StreamWriter(fs))
-            {
-                writer.Write(numero);
-            }
+            UsarStreamDeEntrada();
+            Console.ReadLine();
         }
 
         
