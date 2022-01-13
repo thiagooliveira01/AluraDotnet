@@ -4,10 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Alura.ListaLeitura.Modelos;
 using Alura.ListaLeitura.Persistencia;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace Alura.WebAPI.WebApp.Api
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class LivrosController : ControllerBase
@@ -41,9 +44,9 @@ namespace Alura.WebAPI.WebApp.Api
         public IActionResult ImagemCapa(int id)
         {
             byte[] img = _repo.All
-               .Where(l => l.Id == id)
-               .Select(l => l.ImagemCapa)
-               .FirstOrDefault();
+                .Where(l => l.Id == id)
+                .Select(l => l.ImagemCapa)
+                .FirstOrDefault();
             if (img != null)
             {
                 return File(img, "image/png");
