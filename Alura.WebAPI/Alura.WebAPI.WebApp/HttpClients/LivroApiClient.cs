@@ -31,7 +31,7 @@ namespace Alura.ListaLeitura.HttpClients
         {
             AddBearerToken();
 
-            var resposta = await _httpClient.GetAsync($"livros/{id}/capa");
+            var resposta = await _httpClient.GetAsync($"livros/{id}/capa?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
             return await resposta.Content.ReadAsByteArrayAsync();
         }
@@ -39,7 +39,7 @@ namespace Alura.ListaLeitura.HttpClients
         public async Task<LivroApi> GetLivroAsync(int id)
         {
             AddBearerToken();
-            var resposta = await _httpClient.GetAsync($"livros/{id}");
+            var resposta = await _httpClient.GetAsync($"livros/{id}?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
             return await resposta.Content.ReadAsAsync<LivroApi>();
         }
@@ -47,7 +47,7 @@ namespace Alura.ListaLeitura.HttpClients
         public async Task DeleteLivroAsync(int id)
         {
             AddBearerToken();
-            var resposta = await _httpClient.DeleteAsync($"livros/{id}");
+            var resposta = await _httpClient.DeleteAsync($"livros/{id}?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
             if (resposta.StatusCode != System.Net.HttpStatusCode.NoContent)
             {
@@ -59,7 +59,7 @@ namespace Alura.ListaLeitura.HttpClients
         {
             AddBearerToken();
             HttpContent content = CreateMultipartContent(livro.ToLivro());
-            var resposta = await _httpClient.PostAsync("livros", content);
+            var resposta = await _httpClient.PostAsync("livros?api-version=1.0", content);
             resposta.EnsureSuccessStatusCode();
             if (resposta.StatusCode != System.Net.HttpStatusCode.Created)
             {
@@ -71,7 +71,7 @@ namespace Alura.ListaLeitura.HttpClients
         {
             AddBearerToken();
             HttpContent content = CreateMultipartContent(livro.ToLivro());
-            var resposta = await _httpClient.PutAsync("livros", content);
+            var resposta = await _httpClient.PutAsync("livros?api-version=1.0", content);
             resposta.EnsureSuccessStatusCode();
             if (resposta.StatusCode != System.Net.HttpStatusCode.OK)
             {
@@ -126,7 +126,7 @@ namespace Alura.ListaLeitura.HttpClients
         {
             AddBearerToken();
 
-            var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}");
+            var resposta = await _httpClient.GetAsync($"listasleitura/{tipo}?api-version=1.0");
             resposta.EnsureSuccessStatusCode();
             return await resposta.Content.ReadAsAsync<Lista>();
         }
