@@ -1,5 +1,9 @@
 ﻿using Alura.Filmes.App.Dados;
 using Alura.Filmes.App.Extensions;
+using Alura.Filmes.App.Negocio;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 
 namespace Alura.Filmes.App
 {
@@ -7,19 +11,21 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            int idade = null;
-            string nome = null;
-            double valor = null;
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
 
-            //using (var contexto = new AluraFilmesContexto())
-            //{
-            //    contexto.LogSQLToConsole();
+                //listar os 10 atores modificados recentemente
+                var atores = contexto.Atores
+                    .OrderByDescending(a => EF.Property<DateTime>(a, "last_update"))
+                    .Take(10);
 
-            //    foreach (var ator in contexto.Atores)
-            //    {
-            //        System.Console.WriteLine(ator);
-            //    }
-            //}
+                foreach (var ator in atores)
+                {
+                    Console.WriteLine(ator + " - " + contexto.Entry(ator).Property("last_update").CurrentValue);
+                }
+                
+            }
         }
     }
 }
