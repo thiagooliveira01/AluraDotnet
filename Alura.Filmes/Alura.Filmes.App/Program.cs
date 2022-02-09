@@ -7,16 +7,19 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            //select * from actor
-            using (var contexto = new AluraFilmesContexto())
-            {
-                contexto.LogSQLToConsole();
+            int idade = null;
+            string nome = null;
+            double valor = null;
 
-                foreach (var ator in contexto.Atores)
-                {
-                    System.Console.WriteLine(ator);
-                }
-            }
+            //using (var contexto = new AluraFilmesContexto())
+            //{
+            //    contexto.LogSQLToConsole();
+
+            //    foreach (var ator in contexto.Atores)
+            //    {
+            //        System.Console.WriteLine(ator);
+            //    }
+            //}
         }
     }
 }
