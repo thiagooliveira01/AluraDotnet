@@ -16,15 +16,19 @@ namespace Alura.Filmes.App
                 contexto.LogSQLToConsole();
 
                 var filme = new Filme();
-                filme.Titulo = "Senhor dos Anéis";
+                filme.Titulo = "Cassino Royale";
                 filme.Duracao = 120;
                 filme.AnoLancamento = "2000";
-                filme.Classificacao = "Qualquer";
+                filme.Classificacao = ClassificacaoIndicativa.MaioresQue14;
                 filme.IdiomaFalado = contexto.Idiomas.First();
                 contexto.Entry(filme).Property("last_update").CurrentValue = DateTime.Now;
 
                 contexto.Filmes.Add(filme);
                 contexto.SaveChanges();
+
+                var filmeInserido = contexto.Filmes.First(f => f.Titulo == "Cassino Royale");
+                Console.WriteLine(filmeInserido);
+                Console.WriteLine(filmeInserido.TextoClassificacao);
 
 
             }
