@@ -1,5 +1,6 @@
 ﻿using Alura.Filmes.App.Dados;
 using Alura.Filmes.App.Extensions;
+using Alura.Filmes.App.Negocio;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -14,18 +15,14 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                var filme = contexto.Filmes
-                    .Include(f => f.Atores)
-                    .ThenInclude(fa => fa.Ator)
-                    .First();
+                var ator1 = new Ator { PrimeiroNome = "Emma", UltimoNome = "Watson" };
+                var ator2 = new Ator { PrimeiroNome = "Emma", UltimoNome = "Watson" };
+                contexto.Atores.AddRange(ator1, ator2);
+                contexto.SaveChanges();
 
-                Console.WriteLine(filme);
-                Console.WriteLine("Elenco:");
-
-                foreach (var ator in filme.Atores)
-                {
-                    Console.WriteLine(ator.Ator);
-                }
+                var emmaWatson = contexto.Atores
+                    .Where(a => a.PrimeiroNome == "Emma" && a.UltimoNome == "Watson");
+                Console.WriteLine($"Total de atores enconrados: {emmaWatson.Count()}.");
 
             }
         }
