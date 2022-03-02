@@ -153,6 +153,14 @@
     <Compile Include="Migrations\20171003211112_UniqueAtorPrimeiroUltimoNome.designer.cs">
       <DependentUpon>20171003211112_UniqueAtorPrimeiroUltimoNome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20171107135424_Classificacao.cs" />
+    <Compile Include="Migrations\20171107135424_Classificacao.designer.cs">
+      <DependentUpon>20171107135424_Classificacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171107140819_FilmeCheckConstraint.cs" />
+    <Compile Include="Migrations\20171107140819_FilmeCheckConstraint.designer.cs">
+      <DependentUpon>20171107140819_FilmeCheckConstraint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Filme.cs" />
