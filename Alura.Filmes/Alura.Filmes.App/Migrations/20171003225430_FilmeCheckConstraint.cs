@@ -14,14 +14,14 @@ namespace Alura.Filmes.App.Migrations
                     [rating]='R' OR 
                     [rating]='PG-13' OR 
                     [rating]='PG' OR 
-                    [rating]='G');";
+                    [rating]='G')";
 
             migrationBuilder.Sql(sql);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("ALTER TABLE [dbo].[film] DROP CONSTRAINT [check_rating]");
+            migrationBuilder.Sql("ALTER TABLE [dbo].[film] DROP CONSTRAINT[check_rating]");
         }
     }
 }

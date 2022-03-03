@@ -129,9 +129,12 @@
   <ItemGroup>
     <Compile Include="Dados\AluraFilmesContexto.cs" />
     <Compile Include="Dados\AtorConfiguration.cs" />
+    <Compile Include="Dados\ClienteConfiguration.cs" />
     <Compile Include="Dados\FilmeAtorConfiguration.cs" />
     <Compile Include="Dados\FilmeConfiguration.cs" />
+    <Compile Include="Dados\FuncionarioConfiguration.cs" />
     <Compile Include="Dados\IdiomaConfiguration.cs" />
+    <Compile Include="Dados\PessoaConfiguration.cs" />
     <Compile Include="Extensions\ClassificacaoIndicativaExtensions.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20170928150159_Inicial.cs" />
@@ -154,20 +157,27 @@
     <Compile Include="Migrations\20171003211112_UniqueAtorPrimeiroUltimoNome.designer.cs">
       <DependentUpon>20171003211112_UniqueAtorPrimeiroUltimoNome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171107135424_Classificacao.cs" />
-    <Compile Include="Migrations\20171107135424_Classificacao.designer.cs">
-      <DependentUpon>20171107135424_Classificacao.cs</DependentUpon>
+    <Compile Include="Migrations\20171003222638_Classificacao.cs" />
+    <Compile Include="Migrations\20171003222638_Classificacao.designer.cs">
+      <DependentUpon>20171003222638_Classificacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20171107140819_FilmeCheckConstraint.cs" />
-    <Compile Include="Migrations\20171107140819_FilmeCheckConstraint.designer.cs">
-      <DependentUpon>20171107140819_FilmeCheckConstraint.cs</DependentUpon>
+    <Compile Include="Migrations\20171003225430_FilmeCheckConstraint.cs" />
+    <Compile Include="Migrations\20171003225430_FilmeCheckConstraint.designer.cs">
+      <DependentUpon>20171003225430_FilmeCheckConstraint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20171004155349_Enumerado.cs" />
+    <Compile Include="Migrations\20171004155349_Enumerado.designer.cs">
+      <DependentUpon>20171004155349_Enumerado.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\ClassificacaoIndicativa.cs" />
+    <Compile Include="Negocio\Cliente.cs" />
     <Compile Include="Negocio\Filme.cs" />
     <Compile Include="Negocio\FilmeAtor.cs" />
+    <Compile Include="Negocio\Funcionario.cs" />
     <Compile Include="Negocio\Idioma.cs" />
+    <Compile Include="Negocio\Pessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

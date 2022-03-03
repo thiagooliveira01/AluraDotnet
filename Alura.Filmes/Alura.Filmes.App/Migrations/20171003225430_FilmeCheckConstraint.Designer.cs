@@ -11,8 +11,8 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContexto))]
-    [Migration("20171107135424_Classificacao")]
-    partial class Classificacao
+    [Migration("20171003225430_FilmeCheckConstraint")]
+    partial class FilmeCheckConstraint
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
